@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Yak Score Prediction</title>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+ </head>
+<body>
+  <form action="{{ url_for('predict') }}" method="POST">
+    <label for="theyak">Type your yak:</label>  
+    <input type="text" name="theyak" />
+    <input type="submit" />
+   </form>
+</body>
+</html>
