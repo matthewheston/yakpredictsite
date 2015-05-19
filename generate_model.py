@@ -1,5 +1,6 @@
 from sklearn.linear_model import ElasticNet
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.pipeline import Pipeline
 import pandas as pd
 from sklearn.externals import joblib
 
@@ -14,6 +15,9 @@ vectorizer = CountVectorizer(binary=True)
 
 X = vectorizer.fit_transform(messages)
 
-model = ElasticNet(alpha=0.1).fit(X, y)
+enet = ElasticNet(alpha=0.1).fit(X, y)
 
-joblib.dump(model, "model.pkl")
+model = Pipeline([('vect', vectorizer),
+                    ('clf', enet)])
+
+joblib.dump(text_enet, "model.pkl")
