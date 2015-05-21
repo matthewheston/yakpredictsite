@@ -3,6 +3,7 @@ import numpy as np
 import sys
 
 DATA = sys.argv[1]
+OUTPUT = sys.argv[2]
 COUNT_COL = 'score'
 PARTITION_COL = 'partition'
 THRESHOLD = 10
@@ -32,6 +33,7 @@ def get_partitions(df, count_column, partition_column, threshold = 1):
 def main():
     data_frame = pd.read_csv(DATA, escapechar="\\")
     get_partitions(data_frame, COUNT_COL, PARTITION_COL, THRESHOLD)
+    data_frame.to_csv(OUTPUT, escapechar="\\")
 
 if __name__ == "__main__":
         main()
