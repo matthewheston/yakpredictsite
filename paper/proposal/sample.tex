@@ -1,0 +1,93 @@
+\documentclass{sigchi}
+
+% Remove or comment out these two lines for final version
+%\toappearbox{\Large Submitted to CHI'13. \\Do not cite, do not circulate.}
+%\pagenumbering{arabic}% Arabic page numbers for submission. 
+
+% Use \toappear{...} to override the default ACM copyright statement (e.g. for preprints).
+
+% Load basic packages
+\usepackage{balance}  % to better equalize the last page
+\usepackage{graphics} % for EPS, load graphicx instead
+\usepackage{times}    % comment if you want LaTeX's default font
+\usepackage{url}      % llt: nicely formatted URLs
+
+% llt: Define a global style for URLs, rather that the default one
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\bf\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+
+
+% To make various LaTeX processors do the right thing with page size.
+\def\pprw{8.5in}
+\def\pprh{11in}
+\special{papersize=\pprw,\pprh}
+\setlength{\paperwidth}{\pprw}
+\setlength{\paperheight}{\pprh}
+\setlength{\pdfpagewidth}{\pprw}
+\setlength{\pdfpageheight}{\pprh}
+
+% Make sure hyperref comes last of your loaded packages, 
+% to give it a fighting chance of not being over-written, 
+% since its job is to redefine many LaTeX commands.
+\usepackage[pdftex]{hyperref}
+\hypersetup{
+pdftitle={SIGCHI Conference Proceedings Format},
+pdfauthor={LaTeX},
+pdfkeywords={SIGCHI, proceedings, archival format},
+bookmarksnumbered,
+pdfstartview={FitH},
+colorlinks,
+citecolor=black,
+filecolor=black,
+linkcolor=black,
+urlcolor=black,
+breaklinks=true,
+}
+
+% create a shortcut to typeset table headings
+\newcommand\tabhead[1]{\small\textbf{#1}}
+
+
+% End of preamble. Here it comes the document.
+\begin{document}
+
+\title{Yik Yak Proposal - EECS 349}
+
+% Note that submissions are blind, so author information should be omitted
+\numberofauthors{2}
+\author{
+  \alignauthor Matthew Heston\\
+  Northwestern University
+  \alignauthor Jeremy Foote\\
+  Northwestern University
+}
+
+% Teaser figure can go here
+%\teaser{
+%  \centering
+%  \includegraphics{Figure1}
+%  \caption{Teaser Image}
+%  \label{fig:teaser}
+%}
+\toappear{}
+\maketitle
+
+
+\section{Task}
+We plan to study the new anonymous mobile social media application Yik Yak. Yik Yak is a mobile application in which users can anonymously post short messages called yaks. These yaks are visible to other users who are within 1.5 miles of where the yak was posted. Yaks can be upvoted and downvoted. Users can also leave comments on yaks. These comments in turn can also be upvoted or downvoted. If a yak receives a score of -5, it is automatically deleted. We are interested in determining the features of yaks that are predictive of the score it receives.
+
+Yik Yak is primarily used by students on college campuses. A campus’s yik yak messages may be thought of, then, as a way to understand local culture. By understanding what features are predictive of different classes of yaks, we can gain insight into this culture. We are also interested in comparing these features across campuses. We might expect, for example, the types of yaks which are highly upvoted by large state universities to be different from smaller, liberal arts schools. As social scientists, machine learning here acts as a methodology in which to use social media data to understand differences in different localities. In addition, we believe our method (described below) can help us get insight into what types of yaks “go viral.” Again, comparative studies across campuses help us understand social expectations of different campuses.
+
+\section{Data}
+We have collected on the order of 2 million yaks from 35 different campuses for another research project examining identity in anonymous social media. The 35 campuses were chosen based on previous work which examined anonymous social media at those locations. A script was written to collect data every hour from each of these 35 campuses. Every hour, the script runs and retrieves the last 100 yaks posted to that campus. If we collect a yak we had previously retrieved, we update the score in our database and store any new comments. For each yak we have: the time it was posted, the location it came from, any “handle” associated with the yak (this is a feature of Yik Yak that we can think of as a type of tagging), the score at the time we retrieved the yak, comments associated with the yak as well as the score of those comments.
+Features:    Determining which features we plan to use for our task is part of our exploratory work. Ideas we have considered include bag of words representations (and related word vector approaches such as TF-IDF representation) and LIWC categories. Linguistic Inquiry and Word Count (LIWC), is a lexicon based psychometric tool. It consists of categories and dictionaries of words associated with those categories. An example of categories and associated words include positive affect (nice, sweet) or leisure (cook, chat). We can imagine using similar lexicons to create feature representations, or other linguistic attributes of the yak itself (average word length, etc.) Since we are thinking of this project as a way to identify which features are most discriminative, we are interested in generating many different features to test. Other features might include the time of day that a Yak is posted, the distance from the center of campus, the length of the text, the number of comments, and the time until the Nth comment is posted.
+
+\section{Initial Approach}
+Yak scores follow what we can think of as similar to a power law distribution. We plan to split the data, following the technique used by Cheng et al \cite{cheng_can_2014}. We first find the median number of votes for a post, and look at the differences between the posts which reach that level, and those which don't (i.e., a binary classification task). We then remove all of the items which did not reach the median number of votes, and recurse - for this new set, we again look at the differences between those which reached the median number of votes, and those which did not. This process continues until there are too few examples left to get meaningful results. We will then train various machine learning classifiers based on these different "classes of success". We will focus on classifiers that provide interpretable feature importance scores, and use feature selection techniques to understand what features are most predictive of these classes.
+
+\bibliographystyle{acm-sigchi}
+\bibliography{bibfile}
+\end{document}
