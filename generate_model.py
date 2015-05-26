@@ -20,4 +20,4 @@ enet = ElasticNet(alpha=0.1).fit(X, y)
 model = Pipeline([('vect', vectorizer),
                     ('clf', enet)])
 
-joblib.dump(text_enet, "model.pkl")
+joblib.dump(model, "model.pkl")

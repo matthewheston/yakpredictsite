@@ -1,0 +1,104 @@
+\documentclass{sigchi}
+
+% Remove or comment out these two lines for final version
+%\toappearbox{\Large Submitted to CHI'13. \\Do not cite, do not circulate.}
+%\pagenumbering{arabic}% Arabic page numbers for submission. 
+
+% Use \toappear{...} to override the default ACM copyright statement (e.g. for preprints).
+
+% Load basic packages
+\usepackage{balance}  % to better equalize the last page
+\usepackage{graphics} % for EPS, load graphicx instead
+\usepackage{times}    % comment if you want LaTeX's default font
+\usepackage{url}      % llt: nicely formatted URLs
+
+% llt: Define a global style for URLs, rather that the default one
+\makeatletter
+\def\url@leostyle{%
+  \@ifundefined{selectfont}{\def\UrlFont{\sf}}{\def\UrlFont{\small\bf\ttfamily}}}
+\makeatother
+\urlstyle{leo}
+
+
+% To make various LaTeX processors do the right thing with page size.
+\def\pprw{8.5in}
+\def\pprh{11in}
+\special{papersize=\pprw,\pprh}
+\setlength{\paperwidth}{\pprw}
+\setlength{\paperheight}{\pprh}
+\setlength{\pdfpagewidth}{\pprw}
+\setlength{\pdfpageheight}{\pprh}
+
+% Make sure hyperref comes last of your loaded packages, 
+% to give it a fighting chance of not being over-written, 
+% since its job is to redefine many LaTeX commands.
+\usepackage[pdftex]{hyperref}
+\hypersetup{
+pdftitle={SIGCHI Conference Proceedings Format},
+pdfauthor={LaTeX},
+pdfkeywords={SIGCHI, proceedings, archival format},
+bookmarksnumbered,
+pdfstartview={FitH},
+colorlinks,
+citecolor=black,
+filecolor=black,
+linkcolor=black,
+urlcolor=black,
+breaklinks=true,
+}
+
+% create a shortcut to typeset table headings
+\newcommand\tabhead[1]{\small\textbf{#1}}
+
+
+% End of preamble. Here it comes the document.
+\begin{document}
+
+\title{Yik Yak Proposal - EECS 349}
+
+% Note that submissions are blind, so author information should be omitted
+\numberofauthors{2}
+\author{
+  \alignauthor Matthew Heston\\
+  Northwestern University
+  \alignauthor Jeremy Foote\\
+  Northwestern University
+}
+
+% Teaser figure can go here
+%\teaser{
+%  \centering
+%  \includegraphics{Figure1}
+%  \caption{Teaser Image}
+%  \label{fig:teaser}
+%}
+\toappear{}
+\maketitle
+
+%	Start by succinctly defining your task in terms of its inputs and outputs. For example, ``our task is to predict the outcomes of baseball games based on previous game data.'' Then, briefly (2-3 sentences) say why your task is important.
+%	Describe the data set you have utilized to date. What types of attributes are there, how many attributes, how many examples, and how have you partitioned the data for the purpose of development/training/validation/testing.
+%	Present your preliminary results on the task. Which learning techniques have you tried, and how have they performed? Note: Mention which existing machine learning software packages, if any, you are utilizing. You can use any existing packages you like for the project. Implementing learning algorithms can be, but does not need to be, part of the work you do for the project.
+%	Briefly (1-2 paragraphs) describe your plans for the remainder of the quarter, and list any questions or concerns you have. 
+
+
+\section{Task}
+
+Our task is to predict the score that a given ``yak'' would receive on the anonymous mobile social app Yik Yak. Yik Yak is an anonymous, location-aware mobile application in which users can create short posts, and can view and upvote or downvote posts created near their location. While anonymous, location-based messages have been a part of the world for a long time (e.g., writing on the bathroom stall), the particular combination of anonymity and mass social feedback is enabled by GPS-enabled smartphones. Our goal is to understand how people are using this new ``place'', and whether the norms and uses differ by location.
+
+\section{Data}
+
+In order to make data exploration simpler, we have decided to look at the Yaks from two different campuses - Northwestern University and % TODO: Where else?
+
+For each yak, we have the message text, the posting datetime, the university it was posted at, and the last recorded score. For each campus, we hold back 10\% of the yaks as a test set.
+
+\section{Analysis}
+
+So far, we have tried a bag of words approach to create an estimated score for yaks. We use Python tools for our analysis. We use pandas to store the data, and sklearn tools to create models.
+
+
+%\section{Initial Approach}
+%Yak scores follow what we can think of as similar to a power law distribution. We plan to split the data, following the technique used by Cheng et al \cite{cheng_can_2014}. We first find the median number of votes for a post, and look at the differences between the posts which reach that level, and those which don't (i.e., a binary classification task). We then remove all of the items which did not reach the median number of votes, and recurse - for this new set, we again look at the differences between those which reached the median number of votes, and those which did not. This process continues until there are too few examples left to get meaningful results. We will then train various machine learning classifiers based on these different "classes of success". We will focus on classifiers that provide interpretable feature importance scores, and use feature selection techniques to understand what features are most predictive of these classes.
+
+\bibliographystyle{acm-sigchi}
+\bibliography{../bibfile}
+\end{document}
