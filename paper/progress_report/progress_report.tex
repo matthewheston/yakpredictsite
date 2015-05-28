@@ -1,3 +1,4 @@
+
 \documentclass{sigchi}
 
 % Remove or comment out these two lines for final version
@@ -99,7 +100,7 @@ Our primary features are mostly derived from the message text itself. We have pr
 used bag of words representations in our experiments up to this point, though
 we are considering deriving other features from the text (e.g., length of the
 post.) We also have the timestamp of when the date was posted, which we have not
-utilized yet, but have considered using to derive features as well (e.g., time
+utilized yet, but have considered using this to derive features as well (e.g., time
 of day posted.)
 
 \subsection{Partitioning}
@@ -130,6 +131,7 @@ For the remainder of the quarter we plan to:
 \begin{itemize}
 \item Incorporate other types of features (time of day, etc.) and see how they
 affect performance of our classifiers.
+
 \item Extend current word vector approaches (e.g., try tf-idf, counts of words
 vs. binary whether or not a word exists, etc.) to see if this affects classifier
 performance.
@@ -142,6 +144,21 @@ median-based partitions that we explained in our proposal, or a log transformed
 version of the score.
 
 \end{itemize}
+
+\section{Questions}
+
+We have thought about how best to combine different types of features in one
+model. Specifically, we are wondering if there are any dangers in combining word
+vector features with attributes of a message (such as length, time of day,
+etc.). The bag of words approach obviously creates a super high dimensional,
+sparse hypothesis space, while the attribute features apply to every yak.
+Intuitively, it feels like we may need to do something to treat these types of
+features differently for some of the algorithms that we might use.
+
+Similarly, we have thought about adding higher-level attributes of the texts
+themselves, such as LIWC categories or sentiment analysis, and wondered if those
+can be combined with a word vector approach.
+
 
 % \bibliographystyle{acm-sigchi} \bibliography{../bibfile}
 
