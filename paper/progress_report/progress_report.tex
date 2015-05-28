@@ -86,8 +86,8 @@ from two different campuses - Northwestern University and Florida State
 University. Northwestern was chosen because we are likely to understand local
 references and more easily interpret results of why some words or phrases are
 associated with low or high scores. FSU was chosen to offer a contrast in that
-it is a large state school. It is also the campus we have the most number of
-yaks for, making it useful as we have a large amount of training data. We have
+it is a large state school. It is also the campus for which we have the largest of
+yaks, making it useful as we have a large amount of training data. We have
 approximately 40,000 NU yaks and approximately 160,000 FSU yaks. For current
 experiments, we have discretized score using fairly naive approaches, i.e.,
 binning yaks based on somewhat arbitrary, though intuitive, thresholds (for
@@ -95,8 +95,8 @@ example, binning all yaks that receive a score of less than 0.)
 
 \subsection{Features}
 
-Our primary features are derived from the message text itself. We have primarily
-used bag of words representations in our experiments up to thise point, though
+Our primary features are mostly derived from the message text itself. We have primarily
+used bag of words representations in our experiments up to this point, though
 we are considering deriving other features from the text (e.g., length of the
 post.) We also have the timestamp of when the date was posted, which we have not
 utilized yet, but have considered using to derive features as well (e.g., time
@@ -119,21 +119,28 @@ metrics given the skewed nature of our class distributions. Our best average
 F-score is 67.0\% from 5-fold cross validation using a bigram bag of words
 representation and training a logistic regression model.
 
-So far, we have tried a bag of words approach to create an estimated score for
-yaks. We use Python tools for our analysis. We use pandas to store the data, and
-sklearn tools to create models.
+We have also created a website which allows a user to input a yak, and to
+receive the score that we estimate that yak would receive (using a simple linear
+regression model).
 
 \section{Future Work}
 
 For the remainder of the quarter we plan to:
+
 \begin{itemize}
 \item Incorporate other types of features (time of day, etc.) and see how they
 affect performance of our classifiers.
 \item Extend current word vector approaches (e.g., try tf-idf, counts of words
 vs. binary whether or not a word exists, etc.) to see if this affects classifier
 performance.
+
 \item Compare features between NU and FSU models to see if they give us
 insight into differences between campuses.
+
+\item Try different realizations of our output variable, such as the
+median-based partitions that we explained in our proposal, or a log transformed
+version of the score.
+
 \end{itemize}
 
 % \bibliographystyle{acm-sigchi} \bibliography{../bibfile}
