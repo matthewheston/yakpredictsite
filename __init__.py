@@ -1,8 +1,12 @@
 from flask import Flask, render_template, request, Response
 from sklearn.externals import joblib
+import os
 
 app = Flask(__name__)
-model = joblib.load("model.pkl")
+my_dir = os.path.dirname(__file__)
+pickle_file_path = os.path.join(my_dir, 'model.pkl')
+
+model = joblib.load(pickle_file_path)
 
 @app.route('/')
 def index():
