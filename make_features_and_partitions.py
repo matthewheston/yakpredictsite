@@ -37,11 +37,11 @@ def get_time_info(df, timestamp_col):
     '''Takes a data frame and the column name of the timestamp.
     Adds a "time_of_day" and "day_of_week" column'''
 
-    time_cutoffs = [0,4,8,12,16,20,24]
     time_of_day = ['Late night', 'Early morning', 'Morning',
                     'Afternoon', 'Evening', 'Night']
     df['day_of_week'] = df[timestamp_col].dt.dayofweek
-    df['time_of_day'] = pd.cut(df[timestamp_col].dt.hour, time_cutoffs,
+    # Adds the 6 times of day; one every 4 hours, starting at midnight
+    df['time_of_day'] = pd.cut(df[timestamp_col].dt.hour, 6,
                                 labels=time_of_day)
 
 def get_message_info(df, message_col):
