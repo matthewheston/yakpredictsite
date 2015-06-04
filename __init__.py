@@ -12,6 +12,14 @@ model = joblib.load(pickle_file_path)
 def index():
     return render_template('index.html')
 
+@app.route('/yakpredict')
+def yakpredict():
+    return render_template('predict.html')
+
+@app.route('/abstract')
+def abstract():
+    return render_template('abstract.html')
+
 @app.route('/predict/', methods=['POST'])
 def predict():
     yak_string = request.form['theyak']
