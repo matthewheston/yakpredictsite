@@ -6,14 +6,15 @@ from sklearn.pipeline import Pipeline
 import pandas as pd
 import numpy as np
 
-yaks = pd.read_csv("data/northwestern_yaks.csv", escapechar="\\")
+yaks = pd.read_csv("data/northwestern_yaks_partitioned.csv", escapechar="\\")
 
 messages = yaks["message"]
 
-def discretize_scores():
+def discretize_scores(quantile_score = .9):
     yaks.loc[yaks["score"] < 0, "score"] = -1
-    yaks.loc[(yaks["score"] > 0) & (yaks["score"] <= np.mean(yaks["score"]) + np.std(yaks["score"])), "score"] = 0
-    yaks.loc[yaks["score"] >= np.mean(yaks["score"]) + np.std(yaks["score"]), "score"] = 1
+    yaks.loc[(yaks["score"] > 0) &
+            (yaks["score"] < yaks["score"].quantile(quantile_score), "score"] = 0
+    yaks.loc[yaks["score"] >= yaks["score"].quantile(quantile_score), "score"] = 1
     print "Class distribution: -1 (%s) 0 (%s) 1 (%s)" % (len(yaks[yaks["score"] == -1]), len(yaks[yaks["score"] == 0]), len(yaks[yaks["score"] == 1]))
     print "\n\n\n"
 
