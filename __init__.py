@@ -23,8 +23,10 @@ def abstract():
 @app.route('/predict/', methods=['POST'])
 def predict():
     yak_string = request.form['theyak']
-    score = model.predict([yak_string])
-    return Response(str(score[0]))
+    probs = model.predict_proba([yak_string])[0]
+    probs = ["{:.2f}%".format(p*100) for p in probs] 
+    categories = ['Bad yak', 'Normal Yak', 'Super Yak']
+    return render_template('yak_prediction.html', result=zip(categories, probs))
 
 if __name__ == '__main__':
     app.run(debug=True)

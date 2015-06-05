@@ -1,5 +1,6 @@
-Predicting Yik Yak scores based on text and temporal features
-===================
+---
+title: Predicting Yak Scores based on text and temporal features
+...
 
 EECS 349, Northwestern University, Spring 2015
 
