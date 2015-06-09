@@ -164,7 +164,7 @@ Northwestern and Florida State.
 
 **Florida State**
 
-_Negative_
+_Negative_  
 fartmonster  
 chris  
 lmfao  
@@ -186,7 +186,7 @@ middle
 bit  
 page  
 
-_Middle_
+_Middle_  
 it or  
 pack  
 bad  
@@ -208,7 +208,7 @@ finding
 the one  
 crazy  
 
-_Highly Positive_
+_Highly Positive_  
 chiefs  
 petition  
 95  
@@ -231,7 +231,7 @@ tallahassee
 
 **Northwestern**
 
-_Negative_
+_Negative_  
 anyone  
 ass  
 ugh  
@@ -253,7 +253,7 @@ cig
 norris  
 cunt  
 
-_Middle_
+_Middle_  
 wash  
 post  
 music  
@@ -275,7 +275,7 @@ you guys
 when your  
 stress  
 
-_Highly Upvoted_
+_Highly Upvoted_  
 different  
 99  
 kappa  
