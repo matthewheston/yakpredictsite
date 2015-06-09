@@ -165,137 +165,137 @@ Northwestern and Florida State.
 **Florida State**
 
 _Negative_
-fartmonster
-chris
-lmfao
-john
-shrek
-grindr
-kik
-justin
-you if
-sunny
-jimmy
-bradsmithfsu
-the middle
-go gators
-salley
-doebotz
-nigga
-middle
-bit
-page
+fartmonster  
+chris  
+lmfao  
+john  
+shrek  
+grindr  
+kik  
+justin  
+you if  
+sunny  
+jimmy  
+bradsmithfsu  
+the middle  
+go gators  
+salley  
+doebotz  
+nigga  
+middle  
+bit  
+page  
 
 _Middle_
-it or
-pack
-bad
-summer
-away
-dirac
-that was
-basketball
-wishing
-that is
-traditions
-never had
-buddy
-to just
-girl to
-fml
-totally
-finding
-the one
-crazy
+it or  
+pack  
+bad  
+summer  
+away  
+dirac  
+that was  
+basketball  
+wishing  
+that is  
+traditions  
+never had  
+buddy  
+to just  
+girl to  
+fml  
+totally  
+finding  
+the one  
+crazy  
 
 _Highly Positive_
-chiefs
-petition
-95
-password
-pregnant
-gator
-uf
-pregnancy
-years ago
-fsu
-strozier
-college
-upvote
-publix
-college where
-99
-unconquered
-cancer
-tallahassee
+chiefs  
+petition  
+95  
+password  
+pregnant  
+gator  
+uf  
+pregnancy  
+years ago  
+fsu  
+strozier  
+college  
+upvote  
+publix  
+college where  
+99  
+unconquered  
+cancer  
+tallahassee  
 
 **Northwestern**
 
 _Negative_
-anyone
-ass
-ugh
-women
-south
-zbt
-in norris
-cigs
-that the
-palestine
-smoke
-white
-wet
-suck
-how can
-me out
-israel
-cig
-norris
-cunt
+anyone  
+ass  
+ugh  
+women  
+south  
+zbt  
+in norris  
+cigs  
+that the  
+palestine  
+smoke  
+white  
+wet  
+suck  
+how can  
+me out  
+israel  
+cig  
+norris  
+cunt  
 
 _Middle_
-wash
-post
-music
-breakfast
-less
-what the
-the fuck
-forever
-the first
-could
-time
-mudd
-asleep
-outside
-hours
-beer
-the day
-you guys
-when your
-stress
+wash  
+post  
+music  
+breakfast  
+less  
+what the  
+the fuck  
+forever  
+the first  
+could  
+time  
+mudd  
+asleep  
+outside  
+hours  
+beer  
+the day  
+you guys  
+when your  
+stress  
 
 _Highly Upvoted_
-different
-99
-kappa
-staying
-his
-chipotle
-petition
-is like
-single
-student
-wearing
-awkward
-college
-grade
-degree
-shark
-date
-degrees
-gpa
-northwestern
+different  
+99  
+kappa  
+staying  
+his  
+chipotle  
+petition  
+is like  
+single  
+student  
+wearing  
+awkward  
+college  
+grade  
+degree  
+shark  
+date  
+degrees  
+gpa  
+northwestern  
 
 Discussion
 -----------
