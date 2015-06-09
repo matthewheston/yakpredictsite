@@ -5,7 +5,7 @@ title: Abstract: Predicting Yak Scores based on text and temporal features
 EECS 349, Northwestern University, Spring 2015
 
 Matthew Heston
-<matthewheston@gmail.com>
+<heston@u.northwestern.edu>
 
 Jeremy Foote
 <jdfoote@u.northwestern.edu>
