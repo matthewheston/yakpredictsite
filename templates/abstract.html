@@ -1,23 +1,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
   <meta name="generator" content="pandoc" />
-  <title>Predicting Yak Scores based on text and temporal features</title>
+  <title>Abstract - Predicting Yak Scores based on text and temporal features</title>
   <style type="text/css">code{white-space: pre;}</style>
+<link rel="stylesheet" href="static/github-markdown.css">
+<style>
+    .markdown-body {
+        min-width: 200px;
+        max-width: 790px;
+        margin: 0 auto;
+        padding: 30px;
+    }
+</style>
 </head>
 <body>
+<article class="markdown-body">
 <div id="header">
-<h1 class="title">Predicting Yak Scores based on text and temporal features</h1>
+<h1 class="title">Abstract - Predicting Yak Scores based on text and temporal features</h1>
 </div>
 <p>EECS 349, Northwestern University, Spring 2015</p>
 <p>Matthew Heston <script type="text/javascript">
 <!--
-h='&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;';a='&#64;';n='&#x6d;&#x61;&#116;&#116;&#104;&#x65;&#x77;&#104;&#x65;&#x73;&#116;&#x6f;&#110;';e=n+a+h;
+h='&#x75;&#46;&#110;&#x6f;&#114;&#116;&#104;&#x77;&#x65;&#x73;&#116;&#x65;&#114;&#110;&#46;&#x65;&#100;&#x75;';a='&#64;';n='&#104;&#x65;&#x73;&#116;&#x6f;&#110;';e=n+a+h;
 document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 // -->
-</script><noscript>&#x6d;&#x61;&#116;&#116;&#104;&#x65;&#x77;&#104;&#x65;&#x73;&#116;&#x6f;&#110;&#32;&#x61;&#116;&#32;&#x67;&#x6d;&#x61;&#x69;&#108;&#32;&#100;&#x6f;&#116;&#32;&#x63;&#x6f;&#x6d;</noscript></p>
+</script><noscript>&#104;&#x65;&#x73;&#116;&#x6f;&#110;&#32;&#x61;&#116;&#32;&#x75;&#32;&#100;&#x6f;&#116;&#32;&#110;&#x6f;&#114;&#116;&#104;&#x77;&#x65;&#x73;&#116;&#x65;&#114;&#110;&#32;&#100;&#x6f;&#116;&#32;&#x65;&#100;&#x75;</noscript></p>
 <p>Jeremy Foote <script type="text/javascript">
 <!--
 h='&#x75;&#46;&#110;&#x6f;&#114;&#116;&#104;&#x77;&#x65;&#x73;&#116;&#x65;&#114;&#110;&#46;&#x65;&#100;&#x75;';a='&#64;';n='&#106;&#100;&#102;&#x6f;&#x6f;&#116;&#x65;';e=n+a+h;
@@ -29,7 +40,9 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <p>Yik Yak is an anonymous, location-aware mobile application in which users can create short posts, and can view and upvote or downvote posts created near their location. While anonymous, location-based messages have been a part of the world for a long time (e.g., writing on the bathroom stall), the particular combination of anonymity and mass social feedback is enabled by GPS-enabled smartphones. Our goal is to understand how people are using this new &quot;place&quot;, and whether the norms and uses differ by location.</p>
 <h3 id="data-and-analysis">Data and Analysis</h3>
 <p>We captured approximately 200,000 &quot;yaks&quot; from Northwestern University campus and Florida State University campus. For each yak, we capture the message, the approximate number of votes that it received, and the timestamp from when it was posted. Our analyses are conducted separately for each campus, and results are compared.</p>
-<p>We use logistic regression and naive bayes learners, starting with a &quot;bag of words&quot; approach to the text, and then adding temporal and higher-level text features (such as post length and mean word length). We held out 5,000 yaks from each campus, and then trained on the rest, using 5-fold cross-validation. We report F1 performance on both the training and the test set.</p>
+<p>We use logistic regression and naive bayes learners, starting with a &quot;bag of words&quot; approach to the text, and then adding temporal and higher-level text features (such as post length and mean word length). We held out 5,000 yaks from each campus, and then trained on the rest, using 5-fold cross-validation. We also tested logistic regression classifiers on held out data for each of the two campuses. In all cases, we report F1 score, given the imbalanced nature of our class distribution</p>
 <h3 id="findings">Findings</h3>
+<p>Adding both bigram and our higher level features to a basic unigram bag of words model in most cases slightly increased classifier performance, but not by that much. Logistic regression outperformed Naive Bayes for each campus. We achieved between 70% and 75% F1 scores. Inspecting the top features for each class for each campus allows us to start to think about what types of words and phrases are awarded and punished on Yik Yak. While interpretation of all these terms is difficult, results suggest local references tend to do well while offensive language tends not to.</p>
+</article>
 </body>
 </html>

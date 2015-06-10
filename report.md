@@ -1,5 +1,5 @@
 ---
-title: Report: Predicting Yak Scores based on text and temporal features
+title: Report - Predicting Yak Scores based on text and temporal features
 ...
 
 EECS 349, Northwestern University, Spring 2015

@@ -20,6 +20,10 @@ def yakpredict():
 def abstract():
     return render_template('abstract.html')
 
+@app.route('/report')
+def report():
+    return render_template('report.html')
+
 @app.route('/predict/', methods=['POST'])
 def predict():
     yak_string = request.form['theyak']
