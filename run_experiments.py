@@ -8,6 +8,7 @@ import pandas as pd
 import numpy as np
 
 yaks = pd.read_csv("data/northwestern_yaks_partitioned.csv", escapechar="\\")
+yaks['day_of_week'] = yaks['day_of_week'].astype('category')
 
 messages = yaks["message"]
 
