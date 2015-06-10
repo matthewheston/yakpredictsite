@@ -15,7 +15,7 @@
         padding: 30px;
     }
 </style>
-</head>
+ </head>
 <body>
 <article class="markdown-body">
 <div id="header">
@@ -162,10 +162,40 @@ Note: Percentages reflect average F1 score from 5-fold cross validation.
 <p><strong>Northwestern</strong></p>
 <p><em>Negative</em><br />anyone<br />ass<br />ugh<br />women<br />south<br />zbt<br />in norris<br />cigs<br />that the<br />palestine<br />smoke<br />white<br />wet<br />suck<br />how can<br />me out<br />israel<br />cig<br />norris<br />cunt</p>
 <p><em>Middle</em><br />wash<br />post<br />music<br />breakfast<br />less<br />what the<br />the fuck<br />forever<br />the first<br />could<br />time<br />mudd<br />asleep<br />outside<br />hours<br />beer<br />the day<br />you guys<br />when your<br />stress</p>
-<p><em>Highly Upvoted</em><br />different<br />99<br />kappa<br />staying<br />his<br />chipotle<br />petition<br />is like<br />single<br />student<br />wearing<br />awkward<br />college<br />grade<br />degree<br />shark<br />date<br />degrees<br />gpa<br />northwestern</p>
+<p><em>Highly Positive</em><br />different<br />99<br />kappa<br />staying<br />his<br />chipotle<br />petition<br />is like<br />single<br />student<br />wearing<br />awkward<br />college<br />grade<br />degree<br />shark<br />date<br />degrees<br />gpa<br />northwestern</p>
 <h2 id="discussion">Discussion</h2>
-<p>It is first interesting to note that the addition of bigrams and our other derived features did not seem to boost performance that much in either of our classifiers. (Why might this be?)</p>
-<p>Inspecting our predictive features is not always intuitive, though it is in some cases entertaining (&quot;Chipotle&quot; being highly predictive of being upvoted, for example.) Some examples are intuitive and illustrative, however. We see that certain offensive language is associated with being downvoted. School names or mascots, on the other hand, are associated with a yak doing well. While it's difficult to extrapolate too much from this, we can begin to see that in some cases, students may reward local and relevant posts while punishing offensive content, which is what we might expect. There are some surprising cases, however. &quot;Go gators&quot; is predictive of being downvoted while &quot;FSU&quot; is associated with upvotes. More qualitative analysis would be necessary to understand possibly differences here.</p>
+<p>It is first interesting to note that the addition of bigrams and our other derived features did not seem to boost performance that much in either of our classifiers. We anticipated that these changes would improve performance significantly, and still do not have a good explanation for why that is.</p>
+<p>When we look at the time of day and day of week that yaks are posted, the distribution of scores does not appear to vary much, which may explain why these features did not improve performance.</p>
+<figure>
+    
+<img src='static/YaksByTOD.png' alt='Yaks by time of day' />
+<figcaption>
+Boxplot of Yak scores by when they were posted. Distributions are very similar across all times, which is provides a partial explanation for why adding these features did not improve learning performance.
+</figcaption>
+</figure>
+<figure>
+    
+<img src='static/YaksByDOW.png' alt='Yaks by day of week' />
+<figcaption>
+Boxplot of Yak scores by when they were posted. Again, we see (perhaps surprisingly) that the distributions are similar for each day of the week.
+</figcaption>
+</figure>
+
+<p>However, when we look at the length of yaks (by number of words), we see fairly clear differences between the categories. Adding this feature seems like it should increase accuracy, and the fact that it does not suggests that much of this variation is captured by the different words that are used.</p>
+<figure>
+    
+<img src='static/YakLengthByCat.png' alt='Distribution of number of words by Yak score category' />
+<figcaption>
+This figure shows differences in distributions. Overall, length appears to correlate with quality.
+</figcaption>
+</figure>
+
+<p>Inspecting our predictive features is not always intuitive, though it is in some cases entertaining (&quot;Chipotle&quot; being highly predictive of being upvoted, for example.) Some examples are intuitive and illustrative, however. We see that certain offensive language is associated with being downvoted. This suggests that even in this anonymous environment, participants are involved in creating and enforcing decency norms.</p>
+<p>School names or mascots, on the other hand, are associated with a yak doing well. While it's difficult to extrapolate too much from this, we can begin to see that in some cases, students may reward local and relevant posts while punishing offensive content, which is what we might expect. There are some surprising cases, however. &quot;Go gators&quot; is predictive of being downvoted while &quot;FSU&quot; is associated with upvotes. More qualitative analysis would be necessary to understand possibly differences here.</p>
+<h2 id="future-work">Future work</h2>
+<p>There are a number of interesting machine learning problems that could be analyzed using this data set. One related problem would be to use the yak text to predict which school the user attends, or what time of day / day of the week the yak was posted.</p>
+<p>Our model could also be used to create an interface which helped a user to craft an effective yak (for example, by highlighting poorly performing words).</p>
+<p>Finally, we could extend this research to other domains, such as Twitter or Facebook (where retweets or likes are comparable to yak scores).</p>
 </article>
 </body>
 </html>

@@ -1,6 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -16,7 +15,7 @@
         padding: 30px;
     }
 </style>
-</head>
+ </head>
 <body>
 <article class="markdown-body">
 <div id="header">
@@ -40,9 +39,23 @@ document.write('<a h'+'ref'+'="ma'+'ilto'+':'+e+'">'+e+'<\/'+'a'+'>');
 <p>Yik Yak is an anonymous, location-aware mobile application in which users can create short posts, and can view and upvote or downvote posts created near their location. While anonymous, location-based messages have been a part of the world for a long time (e.g., writing on the bathroom stall), the particular combination of anonymity and mass social feedback is enabled by GPS-enabled smartphones. Our goal is to understand how people are using this new &quot;place&quot;, and whether the norms and uses differ by location.</p>
 <h3 id="data-and-analysis">Data and Analysis</h3>
 <p>We captured approximately 200,000 &quot;yaks&quot; from Northwestern University campus and Florida State University campus. For each yak, we capture the message, the approximate number of votes that it received, and the timestamp from when it was posted. Our analyses are conducted separately for each campus, and results are compared.</p>
-<p>We use logistic regression and naive bayes learners, starting with a &quot;bag of words&quot; approach to the text, and then adding temporal and higher-level text features (such as post length and mean word length). We held out 5,000 yaks from each campus, and then trained on the rest, using 5-fold cross-validation. We also tested logistic regression classifiers on held out data for each of the two campuses. In all cases, we report F1 score, given the imbalanced nature of our class distribution</p>
+<p>We use logistic regression and naive bayes learners, starting with a &quot;bag of words&quot; approach to the text, and then adding temporal and higher-level text features (such as post length and mean word length). We held out 5,000 yaks from each campus, and then trained on the rest, using 5-fold cross-validation. We also tested logistic regression classifiers on held out data for each of the two campuses. In all cases, we report F1 score, given the imbalanced nature of our class distribution.</p>
 <h3 id="findings">Findings</h3>
-<p>Adding both bigram and our higher level features to a basic unigram bag of words model in most cases slightly increased classifier performance, but not by that much. Logistic regression outperformed Naive Bayes for each campus. We achieved between 70% and 75% F1 scores. Inspecting the top features for each class for each campus allows us to start to think about what types of words and phrases are awarded and punished on Yik Yak. While interpretation of all these terms is difficult, results suggest local references tend to do well while offensive language tends not to.</p>
+<p>Adding both bigrams and our higher level features to a basic unigram bag of words model in most cases slightly increased classifier performance, but not by that much. Logistic regression outperformed Naive Bayes for each campus. We achieved between 70% and 75% F1 scores. Inspecting the top features for each class for each campus allows us to start to think about what types of words and phrases are awarded and punished on Yik Yak. While interpretation of all these terms is difficult, results suggest local references tend to do well while offensive language tends not to.</p>
+<figure>
+    
+<img src='static/YaksByTOD.png' alt='Yaks by time of day' />
+<figcaption>
+Boxplot of Yak scores by when they were posted. Distributions are very similar across all times, which is provides a partial explanation for why adding these features did not improve learning performance.
+</figcaption>
+</figure>
+<figure>
+    
+<img src='static/YaksByDOW.png' alt='Yaks by day of week' />
+<figcaption>
+Boxplot of Yak scores by when they were posted. Again, we see (perhaps surprisingly) that the distributions are similar for each day of the week.
+</figcaption>
+</figure>
 </article>
 </body>
 </html>

@@ -302,12 +302,32 @@ Discussion
 
 It is first interesting to note that the addition of bigrams and our other
 derived features did not seem to boost performance that much in either of our
-classifiers. (Why might this be?)
+classifiers. We anticipated that these changes would improve performance significantly, and still do not have a good explanation for why that is.
+
+When we look at the time of day and day of week that yaks are posted, the distribution of scores does not appear to vary much, which may explain why these features did not improve performance.
+
+<figure>
+    <img src='static/YaksByTOD.png' alt='Yaks by time of day' />
+    <figcaption>Boxplot of Yak scores by when they were posted. Distributions are very similar across all times, which is provides a partial explanation for why adding these features did not improve learning performance.</figcaption>
+</figure>
+<figure>
+    <img src='static/YaksByDOW.png' alt='Yaks by day of week' />
+    <figcaption>Boxplot of Yak scores by when they were posted. Again, we see (perhaps surprisingly) that the distributions are similar for each day of the week. </figcaption>
+</figure>
+
+However, when we look at the length of yaks (by number of words), we see fairly clear differences between the categories. Adding this feature seems like it should increase accuracy, and the fact that it does not suggests that much of this variation is captured by the different words that are used.
+
+<figure>
+    <img src='static/YakLengthByCat.png' alt='Distribution of number of words by Yak score category' />
+    <figcaption>This figure shows differences in distributions. Overall, length appears to correlate with quality.</figcaption>
+</figure>
 
 Inspecting our predictive features is not always intuitive, though it is in some
 cases entertaining ("Chipotle" being highly predictive of being upvoted, for
 example.) Some examples are intuitive and illustrative, however. We see that
-certain offensive language is associated with being downvoted. School names or
+certain offensive language is associated with being downvoted. This suggests that even in this anonymous environment, participants are involved in creating and enforcing decency norms.
+
+School names or
 mascots, on the other hand, are associated with a yak doing well. While it's
 difficult to extrapolate too much from this, we can begin to see that in some
 cases, students may reward local and relevant posts while punishing offensive
@@ -315,3 +335,12 @@ content, which is what we might expect. There are some surprising cases,
 however. "Go gators" is predictive of being downvoted while "FSU" is associated
 with upvotes. More qualitative analysis would be necessary to understand
 possibly differences here.
+
+Future work
+------------
+
+There are a number of interesting machine learning problems that could be analyzed using this data set. One related problem would be to use the yak text to predict which school the user attends, or what time of day / day of the week the yak was posted.
+
+Our model could also be used to create an interface which helped a user to craft an effective yak (for example, by highlighting poorly performing words).
+
+Finally, we could extend this research to other domains, such as Twitter or Facebook (where retweets or likes are comparable to yak scores).

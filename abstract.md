@@ -26,7 +26,16 @@ by location.
 ### Data and Analysis ###
 We captured approximately 200,000 "yaks" from Northwestern University campus and Florida State University campus. For each yak, we capture the message, the approximate number of votes that it received, and the timestamp from when it was posted. Our analyses are conducted separately for each campus, and results are compared.
 
-We use logistic regression and naive bayes learners, starting with a "bag of words" approach to the text, and then adding temporal and higher-level text features (such as post length and mean word length). We held out 5,000 yaks from each campus, and then trained on the rest, using 5-fold cross-validation. We also tested logistic regression classifiers on held out data for each of the two campuses. In all cases, we report F1 score, given the imbalanced nature of our class distribution
+We use logistic regression and naive bayes learners, starting with a "bag of words" approach to the text, and then adding temporal and higher-level text features (such as post length and mean word length). We held out 5,000 yaks from each campus, and then trained on the rest, using 5-fold cross-validation. We also tested logistic regression classifiers on held out data for each of the two campuses. In all cases, we report F1 score, given the imbalanced nature of our class distribution.
 
 ### Findings ###
-Adding both bigram and our higher level features to a basic unigram bag of words model in most cases slightly increased classifier performance, but not by that much. Logistic regression outperformed Naive Bayes for each campus. We achieved between 70% and 75% F1 scores. Inspecting the top features for each class for each campus allows us to start to think about what types of words and phrases are awarded and punished on Yik Yak. While interpretation of all these terms is difficult, results suggest local references tend to do well while offensive language tends not to.
+Adding both bigrams and our higher level features to a basic unigram bag of words model in most cases slightly increased classifier performance, but not by that much. Logistic regression outperformed Naive Bayes for each campus. We achieved between 70% and 75% F1 scores. Inspecting the top features for each class for each campus allows us to start to think about what types of words and phrases are awarded and punished on Yik Yak. While interpretation of all these terms is difficult, results suggest local references tend to do well while offensive language tends not to.
+
+<figure>
+    <img src='static/YaksByTOD.png' alt='Yaks by time of day' />
+    <figcaption>Boxplot of Yak scores by when they were posted. Distributions are very similar across all times, which is provides a partial explanation for why adding these features did not improve learning performance.</figcaption>
+</figure>
+<figure>
+    <img src='static/YaksByDOW.png' alt='Yaks by day of week' />
+    <figcaption>Boxplot of Yak scores by when they were posted. Again, we see (perhaps surprisingly) that the distributions are similar for each day of the week. </figcaption>
+</figure>
